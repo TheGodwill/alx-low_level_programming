@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 /**
  * reverse_array - reverse a int array
  * @a: pointer
@@ -12,8 +12,8 @@ int i = 0, half;
 
 for (half = n / 2; half > 0; half--, i++)
 {
-a[n - i - 1] += a[i];
-a[i] = a[n - i - 1] - a[i];
-a[n - i - 1] = a[n - i - 1] - a[i];
+	a[n - i - 1] += a[i];
+	a[i] = a[n - i - 1] - a[i];
+	a[n - i - 1] = a[n - i - 1] - a[i];
 }
 }
