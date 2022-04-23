@@ -1,4 +1,4 @@
-#include "main.h"
+#include "3-main.h"
 /**
  * _strcmp - compares two strings
  * @s1: string 1
