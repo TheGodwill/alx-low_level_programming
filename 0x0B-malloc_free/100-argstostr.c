@@ -2,64 +2,41 @@
 #include "main.h"
 
 /**
- * _strlen - length of a string
- * @s: input char
- * Return: length of a string
+ * argstostr - concatenates all the arguments of your program
+ * @ac: argument count
+ * @av: argument vector
+ * Return: concatenated string
  */
-
-int _strlen(char *s)
-{
-int l = 0;
-
-while (*s != '\0')
-{
-s++;
-l++;
-}
-return (l);
-}
-
-/**
- * argstostr - concat
- * @ac: count
- * @av: vector
- * Return: string
- */
-
 char *argstostr(int ac, char **av)
 {
-int i, j, k;
-int len, R = 0;
-char *p;
+	char *str;
+	int arg, byte, index, size = ac;
 
-if (!ac || !av)
-{
-return (NULL);
-}
-R = 0;
+	if (ac == 0 || av == NULL)
+		return (NULL);
 
-for (i = 0; i < ac; i++)
-{
-len = _strlen(av[i]) + 1;
-R += len;
-}
-p = malloc(sizeof(char) * R + 1);
+	for (arg = 0; arg < ac; arg++)
+	{
+		for (byte = 0; av[arg][byte]; byte++)
+			size++;
+	}
 
-if (!p)
-{
-return (NULL);
-}
+	str = malloc(sizeof(char) * size + 1);
 
-for (i = 0; i < ac; i++)
-{
-len = _strlen(av[i]);
+	if (str == NULL)
+		return (NULL);
 
-for (j = 0; j < len; j++, k++)
-{
-p[k] = av[i][j];
-}
-p[k++] = '\n';
-}
-p[k] = '\0';
-return (p);
+	index = 0;
+
+	for (arg = 0; arg < ac; arg++)
+	{
+		for (byte = 0; av[arg][byte]; byte++)
+			str[index++] = av[arg][byte];
+
+		str[index++] = '\n';
+	}
+
+	str[size] = '\0';
+
+	return (str);
 }
