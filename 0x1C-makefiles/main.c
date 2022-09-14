@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-	print_holberton();
+	print_school();
 	return (EXIT_SUCCESS);
 }
-/* Holberton */
-/* Holberton */
-/* Holberton */
-/* Holberton */
-/* Holberton */
+/* School */
+/* School */
+/* School */
+/* School */
+/* School */
